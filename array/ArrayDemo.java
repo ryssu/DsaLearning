@@ -28,6 +28,12 @@ public class ArrayDemo {
         int[] dummyArray = {3, 2, 4, 7, 10, 6, 5, 7, 11, 14, 23, 26};
 
         int[] oddArray = arrayUtils.removeEven(dummyArray);
+        int[] evenArray = arrayUtils.removeOdd(dummyArray);
+
+        System.out.print("Odd only array: ");
         arrayUtils.printArray(oddArray);
+
+        System.out.print("Even only array: ");
+        arrayUtils.printArray(evenArray);
     }
 }
