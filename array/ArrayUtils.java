@@ -138,6 +138,25 @@ public class ArrayUtils {
 
     // move all zero's to end of an array
     public void zeroToEnd(int[] arr) {
-        
+        int j = 0;
+        for(int i = 0; i < arr.length; i++) {
+            if(arr[i] != 0 && arr[j] == 0) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+            if(arr[j] != 0) {
+                j++;
+            }
+        }
+    }
+
+    // resize an array
+    public int[] resize(int[] arr, int capacity) {
+        int[] temp = new int[capacity];
+        for(int i = 0; i < arr.length; i++) {
+            temp[i] = arr[i];
+        }
+        return temp;
     }
 }
