@@ -184,4 +184,20 @@ public class ArrayUtils {
         }
         return sum;
     }
+
+    // checking if a string is a palindrome or not
+    public boolean isPalindrome(String word) {
+        char[] charArray = word.toCharArray();
+        int start = 0;
+        int end = charArray.length - 1;
+
+        while(start < end) {
+            if(charArray[start] != charArray[end]) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    } 
 }
