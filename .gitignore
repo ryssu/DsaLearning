@@ -1,2 +1,4 @@
 test.java
+# ignoring the classes I used to test my methods
 ArrayDemo.java
+LinkedListDemo.java
