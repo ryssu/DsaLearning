@@ -159,4 +159,45 @@ public class ArrayUtils {
         }
         return temp;
     }
+
+    // find the missing number in an array
+    public void findMissingNum(int[] arr) {
+        int range = arr.length + 1;
+        int sumOfAllNum = (range * (range + 1)) / 2;
+        int sumOfNumInArray = 0;
+
+        // adding the numbers in the array
+        for(int i = 0; i < arr.length; i++) {
+            sumOfNumInArray = sumOfNumInArray + arr[i];
+        }
+
+        int missingNum = sumOfAllNum - sumOfNumInArray;
+        System.out.println("The missing number from range 1 to " + range + " is " + missingNum);
+    }
+
+    // another way to find missing number (video's solution)
+    public int findMissingNum2(int[] arr) {
+        int n = arr.length + 1;
+        int sum = n * (n + 1) / 2;
+        for(int num : arr) {
+            sum = sum - num;
+        }
+        return sum;
+    }
+
+    // checking if a string is a palindrome or not
+    public boolean isPalindrome(String word) {
+        char[] charArray = word.toCharArray();
+        int start = 0;
+        int end = charArray.length - 1;
+
+        while(start < end) {
+            if(charArray[start] != charArray[end]) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    } 
 }
