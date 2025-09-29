@@ -45,4 +45,37 @@ public class SinglyLinkedList {
         newNode.next = head;
         head = newNode;
     }
+
+    // insert node at the end
+    public void insertLast(int data) {
+        ListNode currentNode = head;
+        ListNode newNode = new ListNode(data);
+
+        if(head == null) {
+            head = newNode;
+            return;
+        }
+
+        while(currentNode != null) {
+            if(currentNode.next == null) {
+                currentNode.next = newNode;
+                break;
+            }
+            currentNode = currentNode.next;
+        }
+    }
+
+    // another way to insert node at the end (video's solution)
+    public void insertLast2(int data) {
+        ListNode newNode = new ListNode(data);
+        if(head == null) {
+            head = newNode;
+            return;
+        }
+        ListNode current = head;
+        while(null != current.next) {
+            current = current.next;
+        }
+        current.next = newNode;
+    }
 }
