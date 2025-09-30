@@ -126,4 +126,62 @@ public class SinglyLinkedList {
             previous.next = node;
         }
     }
+
+    // delete the first node (works but could've been better)
+    public void deleteFirstMine() {
+        ListNode node = head;
+        head = node.next;
+    }
+
+    // delete the first node (video's solution)
+    public ListNode deleteFirst() {
+        if(head == null) {
+            return null;
+        }
+
+        ListNode temp = head;
+        head = head.next;
+        temp.next = null;
+        return temp;
+    }
+
+    // delete the last node (did a better job compared to the delete first node method.)
+    public ListNode deleteLast() {
+        ListNode previousNode = head;
+        
+        if(head == null) {
+            return null;
+        }
+
+        if(head.next == null) {
+            ListNode temp = head;
+            head = null;
+            return temp; 
+        }
+
+        while(previousNode.next.next != null) {
+            previousNode = previousNode.next;
+        }
+
+        ListNode currentNode = previousNode.next;
+        previousNode.next = null;
+        return currentNode;
+    }
+
+    // delete the last node (video's solution)
+    public ListNode deleteLast2() {
+        if(head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode current = head;
+        ListNode previous = null;
+
+        while(current.next != null) {
+            previous = current;
+            current = current.next;
+        }
+        previous.next = null;
+        return current;
+    }
 }
