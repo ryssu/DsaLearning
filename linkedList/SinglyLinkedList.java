@@ -78,4 +78,52 @@ public class SinglyLinkedList {
         }
         current.next = newNode;
     }
+
+    // insert a node at a given position
+    public void insertTo(int data, int position) {
+        ListNode newNode = new ListNode(data);
+        ListNode currentNode = head;
+        int count = 1;
+
+        if(head == null) {
+            head = newNode;
+            return;
+        }
+        if(position == 1) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+        if(position < 1) {
+            System.out.println("Enter a valid value. Positions starts at 1");
+            return;
+        }
+
+        while(count < position - 1 && currentNode.next != null) {
+            currentNode = currentNode.next;
+            count++;
+        }
+
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+    }
+
+    // another way to insert node at a given position (video's solution)
+    public void insertTo2(int data, int position) {
+        ListNode node = new ListNode(data);
+        if(position == 1) {
+            node.next = head;
+            head = node;
+        } else {
+            ListNode previous = head;
+            int count = 1;
+            while(count < position - 1) {
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            node.next = current;
+            previous.next = node;
+        }
+    }
 }
