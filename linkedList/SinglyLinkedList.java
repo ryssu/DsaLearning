@@ -184,4 +184,26 @@ public class SinglyLinkedList {
         previous.next = null;
         return current;
     }
+
+    // delete a node at a given position
+    public ListNode deleteNode(int position) {
+        ListNode node = head;
+        if(position == 1) {
+            head = head.next;
+            node.next = null;
+            return node;
+        } else if(position < 1) {
+            System.out.println("enter a valid position");
+        }
+        ListNode previous = head;
+        int count = 1;
+        while(count < position - 1) {
+            previous = previous.next;
+            count++;
+        }
+        ListNode current = previous.next;
+        previous = current.next;
+        current.next = null;
+        return current;
+    }
 }
