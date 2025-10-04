@@ -198,9 +198,13 @@ public class SinglyLinkedList {
         } else {
             ListNode previous = head;
             int count = 1;
-            while(count < position - 1) {
+            while(count < position - 1 && previous.next != null) {
                 previous = previous.next;
                 count++;
+            }
+            if(previous.next == null) {
+                System.out.println("out of bounds");
+                return null;
             }
             ListNode current = previous.next;
             previous.next = current.next;
