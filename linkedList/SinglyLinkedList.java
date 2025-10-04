@@ -212,4 +212,39 @@ public class SinglyLinkedList {
             return current;
         }
     }
+
+    // delete a node at a given position (video's solution)
+    public ListNode deleteNode2(int position) {
+        ListNode node = head;
+        if(position == 1) {
+            head = head.next;
+            return node;
+        } else {
+            ListNode previous = head;
+            int count = 1;
+            while(count < position - 1) {
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            previous.next = current.next;
+            current.next = null;
+            return current;
+        }
+    }
+
+    // search an element in a linked list
+    public boolean searchElement(int element) {
+        if(head == null) {
+            return false;
+        }
+        ListNode current = head;
+        while(current != null) {
+            if(current.data == element) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
 }
