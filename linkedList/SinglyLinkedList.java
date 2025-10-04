@@ -247,4 +247,18 @@ public class SinglyLinkedList {
         }
         return false;
     }
+
+    // reverse a linked list
+    public void reverse() {
+        ListNode current = head;
+        ListNode previous = null;
+        ListNode next = null;
+        while(current != null) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        head = previous;
+    }
 }
