@@ -194,16 +194,18 @@ public class SinglyLinkedList {
             return node;
         } else if(position < 1) {
             System.out.println("enter a valid position");
+            return null;
+        } else {
+            ListNode previous = head;
+            int count = 1;
+            while(count < position - 1) {
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            previous.next = current.next;
+            current.next = null;
+            return current;
         }
-        ListNode previous = head;
-        int count = 1;
-        while(count < position - 1) {
-            previous = previous.next;
-            count++;
-        }
-        ListNode current = previous.next;
-        previous = current.next;
-        current.next = null;
-        return current;
     }
 }
