@@ -261,4 +261,5 @@ public class SinglyLinkedList {
         }
         head = previous;
     }
+    // find nth node from the end of a linked list
 }
