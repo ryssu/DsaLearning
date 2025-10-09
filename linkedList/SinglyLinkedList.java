@@ -272,18 +272,29 @@ public class SinglyLinkedList {
             current = current.next;
             count++;
         }
-        
+
         sll.reverse(); // reverse it again
         return current;
     }
 
     // another way to find nth node from the end (video's solution)
     public ListNode nthNodeFromEnd2(int n) {
+        if(head == null) {
+            return null;
+        }
+
+        if(n <= 0) {
+            throw new IllegalArgumentException("Invalid Value: n = " + n);
+        }
+
         ListNode mainPtr = head;
         ListNode refPtr = head;
         int count = 0;
 
         while(count < n) {
+            if(refPtr == null) {
+                throw new IllegalArgumentException(n + " is greater then the number of nodes");
+            }
             refPtr = refPtr.next;
             count++;
         }
