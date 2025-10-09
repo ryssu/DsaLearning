@@ -293,7 +293,7 @@ public class SinglyLinkedList {
 
         while(count < n) {
             if(refPtr == null) {
-                throw new IllegalArgumentException(n + " is greater then the number of nodes");
+                throw new IllegalArgumentException(n + " is greater than the number of nodes");
             }
             refPtr = refPtr.next;
             count++;
